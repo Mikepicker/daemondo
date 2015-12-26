@@ -23,19 +23,16 @@ public class NotificationService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        Toast.makeText(this, "Service created", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Toast.makeText(this,"Service destroyed", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         super.onCreate();
-        Toast.makeText(this,"Service started", Toast.LENGTH_SHORT).show();
 
         // Decrease daemon hp
         SharedPreferences sharedPref = MainActivity.mainActivity.getPreferences(Context.MODE_PRIVATE);
