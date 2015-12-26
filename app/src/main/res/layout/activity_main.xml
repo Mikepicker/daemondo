@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.daemondo.mike.daemondo.MainActivity"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Player -->
+        <RelativeLayout
+            android:id="@+id/daemon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/daemon_extra"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/daemon_extra"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"/>
+
+            <ImageView
+                android:id="@+id/daemon_body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/daemon_body"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"/>
+
+            <ImageView
+                android:id="@+id/daemon_eyes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/daemon_eyes"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/daemon"
+            android:orientation="vertical">
+
+            <!-- HP Bar -->
+            <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+                android:id="@+id/hp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="false"
+                app:mpb_progressStyle="horizontal"
+                android:minHeight="25dp"
+                style="@style/Widget.MaterialProgressBar.ProgressBar.Horizontal"
+                android:progress="100"
+                android:tint="@color/hp_bar" />
+
+            <!-- XP Bar -->
+            <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+                android:id="@+id/xp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="false"
+                app:mpb_progressStyle="horizontal"
+                android:minHeight="25dp"
+                style="@style/Widget.MaterialProgressBar.ProgressBar.Horizontal"
+                android:progress="0"
+                android:tint="@color/xp_bar"
+                android:layout_marginTop="-16dp"
+                android:layout_marginBottom="0dp"/>
+
+            <!-- Level Bar -->
+            <TextView
+                android:id="@+id/level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="-4dp"
+                android:text="@string/level_text"
+                android:textSize="24sp"
+                fontPath="fonts/pixel.ttf"/>
+
+        </LinearLayout>
+
+        <!-- Enemy -->
+        <RelativeLayout
+            android:id="@+id/enemy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/enemy_extra"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/daemon_extra"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:scaleX="-1"/>
+
+            <ImageView
+                android:id="@+id/enemy_body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/daemon_body"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:scaleX="-1"/>
+
+            <ImageView
+                android:id="@+id/enemy_eyes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/daemon_eyes"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:scaleX="-1"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/list"
+            android:scrollbars="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="20dp">
+        </android.support.v7.widget.RecyclerView>
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="8dp"
+            android:src="@mipmap/button_add"
+            fab:fab_colorNormal="@color/app_primary"
+            fab:fab_colorPressed="@color/app_primary_pressed"
+            fab:fab_colorRipple="@color/app_ripple"/>
+    </RelativeLayout>
+</LinearLayout>

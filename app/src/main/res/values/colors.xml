@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="app_primary">#3F51B5</color>
+    <color name="app_primary_pressed">#09165e</color>
+    <color name="app_ripple">#7186f9</color>
+    <color name="hp_bar">#ff0900</color>
+    <color name="xp_bar">#006aff</color>
+</resources>

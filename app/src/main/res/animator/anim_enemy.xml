@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shareInterpolator="false"
+    android:fillAfter="true"
+    android:fillEnabled="true"
+    android:interpolator="@android:anim/accelerate_decelerate_interpolator">
+
+    <!-- Enter -->
+    <!--<translate
+        android:duration="500"
+        android:fromXDelta="20%p"
+        android:toXDelta="0%p"
+        />
+
+    <translate
+        android:startOffset="1000"
+        android:duration="50"
+        android:fromXDelta="0%p"
+        android:toXDelta="1%p"
+        />
+
+    <translate
+        android:startOffset="1050"
+        android:duration="50"
+        android:fromXDelta="0%p"
+        android:toXDelta="-2%p"
+        />
+
+    <translate
+        android:startOffset="1100"
+        android:duration="50"
+        android:fromXDelta="0%p"
+        android:toXDelta="1%p"
+        />
+
+    <translate
+        android:startOffset="2500"
+        android:duration="1000"
+        android:fromXDelta="0%p"
+        android:toXDelta="20%p"
+        />-->
+
+    <objectAnimator
+        android:duration="500"
+        android:propertyName="x"
+        android:valueFrom="500"
+        android:valueTo="0"
+        />
+
+    <objectAnimator
+        android:startOffset="1000"
+        android:duration="50"
+        android:propertyName="x"
+        android:valueFrom="0"
+        android:valueTo="20"
+        />
+
+    <objectAnimator
+        android:startOffset="1050"
+        android:duration="50"
+        android:propertyName="x"
+        android:valueFrom="20"
+        android:valueTo="-20"
+        />
+
+    <objectAnimator
+        android:startOffset="1100"
+        android:duration="50"
+        android:propertyName="x"
+        android:valueFrom="-20"
+        android:valueTo="0"
+        />
+
+    <objectAnimator
+        android:startOffset="2500"
+        android:propertyName="x"
+        android:duration="1000"
+        android:valueFrom="0"
+        android:valueTo="500"
+        />
+</set>
