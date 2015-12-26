@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
         enemy.enemyAnim();
         daemon.attack();
         daemon.enemyKilled();
-        daemon.setHp(100);
+        daemon.setHp(daemon.hp + 25);
     }
 
     public void newTask()
