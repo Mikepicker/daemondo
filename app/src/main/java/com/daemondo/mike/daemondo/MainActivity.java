@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Notification (every 2 hours)
+        // Notification (every 6 hours)
         Intent notificationIntent = new Intent(this, NotificationService.class);
         PendingIntent contentIntent = PendingIntent.getService(this, 0, notificationIntent,
                 PendingIntent.FLAG_CANCEL_CURRENT);
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         am.cancel(contentIntent);
         am.setRepeating(AlarmManager.RTC, Calendar.getInstance().getTimeInMillis(),
-                6000, contentIntent);
+                AlarmManager.INTERVAL_HOUR*6, contentIntent);
 
     }
 
