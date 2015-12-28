@@ -1,23 +1,16 @@
 package com.daemondo.mike.daemondo;
 
 import android.app.AlarmManager;
-import android.app.Notification;
 import android.app.PendingIntent;
-import android.app.Service;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
-import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.github.clans.fab.FloatingActionButton;
@@ -27,7 +20,6 @@ import java.util.Calendar;
 import java.util.Iterator;
 import java.util.Random;
 
-import br.com.goncalves.pugnotification.notification.PugNotification;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -38,11 +30,11 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private ArrayList<CardItem> mCards;
+    ArrayList<CardItem> mCards;
 
     // Daemons
-    private Daemon daemon;
-    private Daemon enemy;
+    Daemon daemon;
+    Daemon enemy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         am.cancel(contentIntent);
         am.setRepeating(AlarmManager.RTC, Calendar.getInstance().getTimeInMillis(),
-                AlarmManager.INTERVAL_HOUR*2, contentIntent);
+                6000, contentIntent);
 
     }
 
@@ -156,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
             count++;
         }
 
-        ed.commit();
+        ed.apply();
     }
 
     // Restore state
@@ -168,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
         if (sp.getInt("hp",0) <= 0) {
             daemon = new Daemon(Daemon.Type.DAEMON, randRes(), randRes(), randRes());
             ed.putInt("hp", 100);
-            ed.commit();
+            ed.apply();
         }
         else
         {

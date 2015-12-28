@@ -34,26 +34,43 @@ public class NotificationService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         super.onCreate();
 
+        // Do nothing if there are no tasks
+        if (MainActivity.mainActivity.mCards.size() == 0)
+            return START_NOT_STICKY;
+
+        MainActivity ma = MainActivity.mainActivity;
+
         // Decrease daemon hp
         SharedPreferences sharedPref = MainActivity.mainActivity.getPreferences(Context.MODE_PRIVATE);
         SharedPreferences.Editor ed = sharedPref.edit();
         int hp = sharedPref.getInt("hp", 0) - 25;
-        if (hp <= 0)
-            ed.putInt("hp", 0);
-        else
+        if (hp <= 0) {
+            ed.putInt("hp", 100);
+            ma.daemon = new Daemon(Daemon.Type.DAEMON, ma.randRes(),
+                    ma.randRes(), ma.randRes());
+            MainActivity.mainActivity.daemon.setHp(100);
+        }
+        else {
             ed.putInt("hp", hp);
-        ed.commit();
+            MainActivity.mainActivity.daemon.setHp(hp);
+        }
+        ed.apply();
 
-        PugNotification.with(MainActivity.mainActivity)
-                .load()
-                .title("DaemonDo")
-                .message("Your daemon is suffering!")
-                .bigTextStyle("bigtext")
-                .smallIcon(R.mipmap.app_icon)
-                .largeIcon(R.mipmap.app_icon)
-                .flags(Notification.DEFAULT_ALL)
-                .simple()
-                .build();
+
+        if (hp == 25)
+        {
+            PugNotification.with(MainActivity.mainActivity)
+                    .load()
+                    .title("DaemonDo")
+                    .message("Your daemon is suffering!")
+                    .bigTextStyle("bigtext")
+                    .smallIcon(R.mipmap.app_icon)
+                    .largeIcon(R.mipmap.app_icon)
+                    .flags(Notification.DEFAULT_ALL)
+                    .click(MainActivity.class)
+                    .simple()
+                    .build();
+        }
 
         return START_NOT_STICKY;
     }
