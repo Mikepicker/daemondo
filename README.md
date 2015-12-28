@@ -4,4 +4,4 @@ It keeps the user motivated by implementing a simple rpg feature: the user has t
 by doing the tasks he previously set. The more tasks are dismissed, the more is the experience gain.
 Once a daemon dies, another one (with random colors) replaces it.
 
-![Screenshot](screen_1.img)
+![Screenshot](screen_1.png)
