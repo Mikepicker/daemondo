@@ -27,7 +27,7 @@ public class Daemon {
     public enum Type {DAEMON, ENEMY, CARD}
 
     // Number of png's
-    final static int RES_COUNT = 4;
+    final static int RES_COUNT = 5;
 
     // Views
     RelativeLayout rl; // Relative Layout
